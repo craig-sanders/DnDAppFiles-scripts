@@ -30,8 +30,11 @@ your system.
 
 3. From time to time, you'll need to update the XML files to get the latest data:
 
-    cd ~/git/rpg/DnDAppFiles
-    git pull
-    ./create_compendiums.py
+ e.g.
 
+    cd ~/git/rpg/DnDAppFiles
+    
+    git pull
+    
+    ./create_compendiums.py
 

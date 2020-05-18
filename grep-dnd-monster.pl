@@ -286,6 +286,7 @@ Misc  Options:
                        options.
 
   -h, --help           brief help message
+  -m, --man            view POD man page
 
 =head1 OPTIONS
 

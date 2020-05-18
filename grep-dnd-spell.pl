@@ -208,24 +208,13 @@ sub fields_hash {
 
 __END__
 
-Name: Find Familiar
-Level: 1
-School: C
-Ritual: YES
-Time: 1 hour
-Range: 10 feet
-Components: V, S, M (10 gp worth of charcoal, incense, and herbs that must be consumed by fire in a brass brazier)
-Duration: Instantaneous
-Classes: Wizard
-
-
 =head1 NAME
 
-grep-spell.pl -- Search the DNDAppFiles XML files for spell details.
+grep-dnd-spell.pl -- Search the DNDAppFiles XML files for spell details.
 
 =head1 SYNOPSIS
 
-grep-spell.pl [options] [regexp...]
+grep-dnd-spell.pl [options] [regexp...]
 
 Search Options:
 
@@ -235,7 +224,7 @@ Search Options:
   -c, --classes     <regexp>   search levels
   -C, --Component   <regexp>   search Creature Rating
   -r, --ritual      [Y|N]      search for ritual spells
-  -f, --full        <regexp>   full-text search of monster descriptions.
+  -f, --full        <regexp>   full-text search of spell descriptions.
 
 Each of these options can be used multiple times, with multiples of the same
 option AND-ed together by default.  They can be OR-ed together with the --or
@@ -301,22 +290,22 @@ If used, this option applies to all search options.
 
 =over 8
 
-=item B<grep-spell.pl -n '^Find Familiar$'>
+=item B<grep-dnd-spell.pl -n '^Find Familiar$'>
 
 Search for a spell whose name exactly matches "Find Familiar".
 
-=item B<grep-monster.pl -c Wizard -l 0>
+=item B<grep-dnd-spell.pl -c Wizard -l 0>
 
 Search for all Wizard Cantrips
 
-=item B<grep-monster.pl -n green -n dragon -n adult>
+=item B<grep-dnd-spell.pl -c Druid --ritual Y -l 1>
 
-Search for all monsters where the name contains B<all> of 'green' and 'dragon'
-and 'adult'.
+Search for all 1st level Druid ritual spells.
 
-=item B<grep-monster.pl -n green -n dragon -n adult -o>
+=item B<grep-dnd-spell.pl -c wizard -s 'en|i' -l [1-3]>
 
-Search for all monsters where the name contains either 'green' or 'dragon' or 'adult'.
+Search for all 1st-3rd level Wizard spells in the schools of Enchantment or
+Illusion (useful for Arcane Tricksters)
 
 =back
 
@@ -324,7 +313,7 @@ Search for all monsters where the name contains either 'green' or 'dragon' or 'a
 
 =over 8
 
-B<This program> will search the DNDAppFiles XML files for monster details.
+B<This program> will search the DNDAppFiles XML files for spell details.
 
 =back
 

@@ -243,11 +243,11 @@ __END__
 
 =head1 NAME
 
-grep-monster.pl -- Search the DNDAppFiles XML files for monster details.
+grep-dnd-monster.pl -- Search the DNDAppFiles XML files for monster details.
 
 =head1 SYNOPSIS
 
-grep-monster.pl [options] [regexp...]
+grep-dnd-monster.pl [options] [regexp...]
 
 Search Options:
 
@@ -325,11 +325,11 @@ If used, this option applies to all search options.
 
 =over 8
 
-=item B<grep-monster.pl -n '^goblin$'>
+=item B<grep-dnd-monster.pl -n '^goblin$'>
 
 Search for a monster whose name exactly matches "goblin".
 
-=item B<grep-monster.pl -t beast -cr 2>
+=item B<grep-dnd-monster.pl -t beast -cr 2>
 
 Search for all beasts with creature rating of 2.
 
@@ -338,7 +338,7 @@ Search for all beasts with creature rating of 2.
 Search for all monsters where the name contains B<all> of 'green' and 'dragon'
 and 'adult'.
 
-=item B<grep-monster.pl -n green -n dragon -n adult -o>
+=item B<grep-dnd-monster.pl -n green -n dragon -n adult -o>
 
 Search for all monsters where the name contains either 'green' or 'dragon' or 'adult'.
 

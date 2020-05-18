@@ -45,7 +45,7 @@ my $unformatted=0;
 GetOptions ("name=s"       => \@name,
             "type=s"       => \@type,
             "rarity=s"     => \@rarity,
-            "classes=s"    => \@classes,
+#            "classes=s"    => \@classes,
             "full=s"       => \@search,
 
             "or"           => \$logical_or,
@@ -112,32 +112,12 @@ foreach my $item ($dom->findnodes('/compendium/item')) {
   };
 };
 
-### foreach my $spell ($dom->findnodes('/compendium/spell')) {
-###   $spell->appendChild($noritual) unless ($spell->findvalue('./ritual'));
-###
-###   if ( ($spell->textContent =~ m/$search/mio) &&
-###        ($spell->findvalue('./name')       =~ m/$name/io) &&
-###        ($spell->findvalue('./school')     =~ m/$school/io) &&
-###        ($spell->findvalue('./level')      =~ m/$level/io) &&
-###        ($spell->findvalue('./time')       =~ m/$time/io) &&
-###        ($spell->findvalue('./classes')    =~ m/$classes/io) &&
-###        ($spell->findvalue('./components') =~ m/$components/io) &&
-###        ($spell->findvalue('./ritual')     =~ m/$ritual/io)
-###      ) {
-###
-###     print_spell($spell);
-###     # output 2 blank lines between spells
-###     print "\n\n";
-###   };
-### };
-
-
 sub debug {
   print "search      = '$search'\n";
   print "name        = '$name'\n";
   print "type        = '$type'\n";
   print "rarity      = '$rarity'\n";
-  print "classes     = '$classes'\n";
+#  print "classes     = '$classes'\n";
 };
 
 
@@ -204,19 +184,18 @@ sub fields_hash {
 
 =head1 NAME
 
-grep-item.pl -- Search the DNDAppFiles XML files for item details.
+grep-dnd-item.pl -- Search the DNDAppFiles XML files for item details.
 
 =head1 SYNOPSIS
 
-grep-spell.pl [options] [regexp...]
+grep-dnd-item.pl [options] [regexp...]
 
 Search Options:
 
   -n, --name        <regexp>   search Names
   -t, --type        <regexp>   search types
   -r, --rarity      <regexp>   search rarities
-  -c, --classes     <regexp>   search classes
-  -f, --full        <regexp>   full-text search of monster descriptions.
+  -f, --full        <regexp>   full-text search of item descriptions.
 
 Each of these options can be used multiple times, with multiples of the same
 option AND-ed together by default.  They can be OR-ed together with the --or
@@ -257,7 +236,7 @@ Search the item classes.
 
 =item B<-f>, B<--full> <regexp>
 
-Full text search of spell descriptions.
+Full text search of item descriptions.
 
 =item B<-h>, B<--help>
 
@@ -274,22 +253,17 @@ If used, this option applies to all search options.
 
 =over 8
 
-=item B<grep-spell.pl -n '^Find Familiar$'>
+=item B<grep-dnd-item.pl -n '^Wand of Viscid Globs$'>
 
-Search for a spell whose name exactly matches "Find Familiar".
+Search for an item whose name exactly matches "Wand of Viscid Globs".
 
-=item B<grep-monster.pl -c Wizard -l 0>
+=item B<grep-dnd-item.pl -n viscid
 
-Search for all Wizard Cantrips
+Search for an item whose name contains the word "viscid".
 
-=item B<grep-monster.pl -n green -n dragon -n adult>
+=item B<grep-dnd-item.pl -n ring>
 
-Search for all monsters where the name contains B<all> of 'green' and 'dragon'
-and 'adult'.
-
-=item B<grep-monster.pl -n green -n dragon -n adult -o>
-
-Search for all monsters where the name contains either 'green' or 'dragon' or 'adult'.
+Search for all rings.
 
 =back
 
@@ -297,7 +271,7 @@ Search for all monsters where the name contains either 'green' or 'dragon' or 'a
 
 =over 8
 
-B<This program> will search the DNDAppFiles XML files for monster details.
+B<This program> will search the DNDAppFiles XML files for item details.
 
 =back
 

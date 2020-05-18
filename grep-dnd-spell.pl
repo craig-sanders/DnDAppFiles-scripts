@@ -1,5 +1,12 @@
 #!/usr/bin/perl
 
+# Copyright Craig Sanders 2020
+#
+# Licensed under the terms of the GNU General Public License,
+# version 3 or any later version.
+#
+# code available at https://github.com/craig-sanders/DnDAppFiles-scripts
+
 use 5.010;
 use strict;
 use warnings;

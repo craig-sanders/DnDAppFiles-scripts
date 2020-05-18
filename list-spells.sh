@@ -1,6 +1,11 @@
 #!/bin/bash
 
-cd /home/cas/git/rpg/DnDAppFiles/Compendiums
+# Copyright Craig Sanders 2020
+#
+# Licensed under the terms of the GNU General Public License,
+# version 3 or any later version.
+#
+# code available at https://github.com/craig-sanders/DnDAppFiles-scripts
 
 function usage() {
   script=$(basename $0)

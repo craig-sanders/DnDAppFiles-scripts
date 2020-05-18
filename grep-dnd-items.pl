@@ -263,9 +263,9 @@ If used, this option applies to all search options.
 
 Search for an item whose name exactly matches "Wand of Viscid Globs".
 
-=item B<grep-dnd-item.pl -n viscid
+=item B<grep-dnd-item.pl -n viscid>
 
-Search for an item whose name contains the word "viscid".
+Search for items whose name contains the word "viscid".
 
 =item B<grep-dnd-item.pl -n ring>
 

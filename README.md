@@ -19,18 +19,14 @@ cd DnDAppFiles
 ```
 
 
-2. Then you need to modify each of my scripts to point to the correct file in
-your system.
-
-e.g. the following lines need to be modified:
+2. Then you need to export an environment variable called 'DnDAppFiles' to point to
+the top-level directory of the DnDAppFiles repository.  Add it to your `.bashrc` or
+whatever.  For example:
 
 ```
-$ grep filename.*xml *
-grep-dnd-items.pl:my $filename = '/home/cas/git/rpg/DnDAppFiles/Compendiums/Items Compendium.xml';
-grep-dnd-monster.pl:my $filename = '/home/cas/git/rpg/DnDAppFiles/Compendiums/Bestiary Compendium.xml';
-grep-dnd-spell.pl:my $filename = '/home/cas/git/rpg/DnDAppFiles/Compendiums/Spells Compendium.xml';
-```
+export DnDAppFiles="$HOME/git/rpg/DnDAppFiles"
 
+```
 
 3. From time to time, you'll need to update the XML files to get the latest data:
 

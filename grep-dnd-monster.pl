@@ -12,8 +12,13 @@ use Pod::Usage;
 $Pod::Usage::Formatter = 'Pod::Text::Termcap';
 Getopt::Long::Configure('no_ignore_case');
 
-# FIXME use a config file for the file path.
-my $filename = '/home/cas/git/rpg/DnDAppFiles/Compendiums/Bestiary Compendium.xml';
+# env var DnDAppFiles needs to be set to the root dir of the DnDAppFiles repo
+my $filename='';
+if ($ENV{'DnDAppFiles'}) {
+  $filename = $ENV{'DnDAppFiles'} . '/Compendiums/Bestiary Compendium.xml';
+} else {
+  die "DnDAppFiles Env variable is not set"
+};
 
 # FIXME loop over all .xml files in DndAppFiles/Bestiary rather than require
 # the compendium
@@ -243,7 +248,7 @@ __END__
 
 =head1 NAME
 
-grep-dnd-monster.pl -- Search the DNDAppFiles XML files for monster details.
+grep-dnd-monster.pl -- Search the DnDAppFiles XML files for monster details.
 
 =head1 SYNOPSIS
 
@@ -348,7 +353,7 @@ Search for all monsters where the name contains either 'green' or 'dragon' or 'a
 
 =over 8
 
-B<This program> will search the DNDAppFiles XML files for monster details.
+B<This program> will search the DnDAppFiles XML files for monster details.
 
 =back
 

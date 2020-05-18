@@ -12,7 +12,13 @@ use Pod::Usage;
 $Pod::Usage::Formatter = 'Pod::Text::Termcap';
 Getopt::Long::Configure('no_ignore_case');
 
-my $filename = '/home/cas/git/rpg/DnDAppFiles/Compendiums/Spells Compendium.xml';
+# env var DnDAppFiles needs to be set to the root dir of the DnDAppFiles repo
+my $filename='';
+if ($ENV{'DnDAppFiles'}) {
+  $filename = $ENV{'DnDAppFiles'} . '/Compendiums/Spells Compendium.xml';
+} else {
+  die "DnDAppFiles Env variable is not set"
+};
 
 my $dom = XML::LibXML->load_xml(location => $filename);
 
@@ -210,7 +216,7 @@ __END__
 
 =head1 NAME
 
-grep-dnd-spell.pl -- Search the DNDAppFiles XML files for spell details.
+grep-dnd-spell.pl -- Search the DnDAppFiles XML files for spell details.
 
 =head1 SYNOPSIS
 
@@ -313,7 +319,7 @@ Illusion (useful for Arcane Tricksters)
 
 =over 8
 
-B<This program> will search the DNDAppFiles XML files for spell details.
+B<This program> will search the DnDAppFiles XML files for spell details.
 
 =back
 

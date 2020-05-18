@@ -12,7 +12,13 @@ use Pod::Usage;
 $Pod::Usage::Formatter = 'Pod::Text::Termcap';
 Getopt::Long::Configure('no_ignore_case');
 
-my $filename = '/home/cas/git/rpg/DnDAppFiles/Compendiums/Items Compendium.xml';
+# env var DnDAppFiles needs to be set to the root dir of the DnDAppFiles repo
+my $filename='';
+if ($ENV{'DnDAppFiles'}) {
+  $filename = $ENV{'DnDAppFiles'} . '/Compendiums/Items Compendium.xml';
+} else {
+  die "DnDAppFiles Env variable is not set"
+};
 
 my $dom = XML::LibXML->load_xml(location => $filename);
 
@@ -184,7 +190,7 @@ sub fields_hash {
 
 =head1 NAME
 
-grep-dnd-item.pl -- Search the DNDAppFiles XML files for item details.
+grep-dnd-item.pl -- Search the DnDAppFiles XML files for item details.
 
 =head1 SYNOPSIS
 
@@ -271,7 +277,7 @@ Search for all rings.
 
 =over 8
 
-B<This program> will search the DNDAppFiles XML files for item details.
+B<This program> will search the DnDAppFiles XML files for item details.
 
 =back
 

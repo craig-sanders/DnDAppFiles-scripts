@@ -20,7 +20,7 @@ run the `create_compendiums.py` script.
 2. Then you need to modify each of my scripts to point to the correct file in
 your system.
 
- e.g. on my system:
+ e.g. the following liness need to be modified:
 
     $ grep filename.*xml *
     grep-dnd-items.pl:my $filename = '/home/cas/git/rpg/DnDAppFiles/Compendiums/Items Compendium.xml';

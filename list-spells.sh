@@ -18,6 +18,8 @@ Usage: $script [options] <search pattern>...
   -b      Search for full word only
   -l c    Search for spells of 'Level: [c]' (a regexp class) only
 
+  -r      List ritual spells only
+
   -C      Don't list Classes
 
   -x      Exclude spells that can only be cast by a class archetype.
@@ -61,7 +63,7 @@ arrange_opts() {
     OPTARR=("${flags[@]}" "${args[@]}")
 }
 
-known_opts="hnbl:Cx"
+known_opts="hnrbl:Cx"
 arrange_opts "$known_opts" "$@"
 set -- "${OPTARR[@]}"
 
@@ -70,11 +72,13 @@ FULLWORD=''
 LEVELS=''
 NOCLASSES=''
 CORECLASS=''
+RITUAL=''
 
 while getopts "$known_opts" opt; do
     case "$opt" in
         h) usage ;;
         n) NAMEONLY='-n' ;;
+        r) RITUAL='--ritual Y' ;;
         b) FULLWORD='-b' ;;
         l) LEVEL="${LEVEL}${OPTARG}" ;;
         C) NOCLASSES=1 ;;
@@ -101,7 +105,7 @@ REGEXP="($(joinarray '|' "$@"))"
 #echo ./grep-spell.sh $NAMEONLY $FULLWORD "$REGEXP"
 
 #./grep-spell.sh $NAMEONLY $FULLWORD "$REGEXP" |
-grep-dnd-spell.pl $NAMEONLY $FULLWORD "$REGEXP" |
+grep-dnd-spell.pl $RITUAL $NAMEONLY $FULLWORD "$REGEXP" |
     grep -E '(Name|Level|School|Classes):' |
     awk 'NR % 4 == 1 { a=$0 ; next } NR % 4 == 2 {b=$0 ; next} NR % 4 == 3 { c=$0 ; next} { printf "%-10s %-10s %-40s %s\n",  b, c, a, $0 }'  |
     sort |

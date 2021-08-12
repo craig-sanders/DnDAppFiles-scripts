@@ -346,7 +346,7 @@ Search for a monster whose name exactly matches "goblin".
 
 Search for all beasts with creature rating of 2.
 
-=item B<grep-monster.pl -n green -n dragon -n adult>
+=item B<grep-dnd-monster.pl -n green -n dragon -n adult>
 
 Search for all monsters where the name contains B<all> of 'green' and 'dragon'
 and 'adult'.
